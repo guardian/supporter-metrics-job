@@ -57,6 +57,13 @@ Resources:
               Action:
                 - lambda:InvokeFunction
               Resource: "*"
+        - PolicyName: email
+          PolicyDocument:
+            Statement:
+              Effect: Allow
+              Action:
+                - ses:SendEmail
+              Resource: "*"
   Lambda:
     Type: AWS::Lambda::Function
     Properties:
