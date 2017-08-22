@@ -6,7 +6,7 @@ import com.amazonaws.regions.Regions
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.simpleemail.model._
 import com.amazonaws.services.simpleemail.{ AmazonSimpleEmailService, AmazonSimpleEmailServiceAsyncClientBuilder }
-import org.apache.logging.log4j.scala.Logging
+import org.apache.logging.log4j.{ LogManager, Logger }
 
 import scala.util.{ Failure, Success, Try }
 
@@ -30,6 +30,10 @@ object Env {
     Option(System.getenv("Stage")).getOrElse("DEV"),
     Option(System.getenv("EmailTo")).get,
     Option(System.getenv("EmailFrom")).get)
+}
+
+trait Logging {
+  protected val logger: Logger = LogManager.getLogger(getClass)
 }
 
 object Lambda extends Logging {
