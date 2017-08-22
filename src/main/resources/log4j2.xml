@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" packages="com.amazonaws.services.lambda.runtime.log4j2">
+    <Appenders>
+        <Lambda name="LambdaAppender">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %X{AWSRequestId} %-5p %c{1}:%L - %m%n"/>
+        </Lambda>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="LambdaAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
+<!--
+log = .
+log4j.rootLogger = INFO, LAMBDA, A1
+
+# Define the LAMBDA Appender
+log4j.appender.LAMBDA=com.amazonaws.services.lambda.runtime.log4j.LambdaAppender
+log4j.appender.LAMBDA.layout=org.apache.log4j.PatternLayout
+log4j.appender.LAMBDA.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %l - %m%n
+
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-5p %c %x - %m%n
+-->
