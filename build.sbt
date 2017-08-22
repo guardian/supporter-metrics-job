@@ -19,8 +19,6 @@ libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-java-sdk-ses" % "1.11.180",
   "com.amazonaws" % "aws-lambda-java-core" % "1.1.0",
   "com.amazonaws" % "aws-lambda-java-log4j2" % "1.0.0",
-  "org.apache.logging.log4j" % "log4j-api" % "2.8.2",
-  "org.apache.logging.log4j" % "log4j-core" % "2.8.2" % Runtime,
   "org.apache.logging.log4j" %% "log4j-api-scala" % "11.0",
   "com.typesafe" % "config" % "1.3.1"
 )
