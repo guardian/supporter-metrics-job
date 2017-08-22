@@ -29,3 +29,10 @@ riffRaffPackageType := assembly.value
 riffRaffUploadArtifactBucket := Option("riffraff-artifact")
 riffRaffUploadManifestBucket := Option("riffraff-builds")
 riffRaffArtifactResources += (file("cfn.yaml"), s"${name.value}-cfn/cfn.yaml")
+
+import sbtassembly.Log4j2MergeStrategy
+
+assemblyMergeStrategy in assembly := {
+  case PathList(ps@_*) if ps.last == "Log4j2Plugins.dat" => Log4j2MergeStrategy.plugincache
+  case x => MergeStrategy.defaultMergeStrategy(x)
+}
