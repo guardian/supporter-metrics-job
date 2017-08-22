@@ -1,4 +1,4 @@
-stacks: [supporter-metrics-job]
+stacks: [memb-supporter-metrics-job]
 regions: [eu-west-1]
 
 deployments:
