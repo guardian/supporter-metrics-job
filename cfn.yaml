@@ -28,6 +28,14 @@ Parameters:
     Description: email address to send emails to
     Type: String
     Default: john.duffell@guardian.co.uk
+  PrestoUrl:
+    Description: presto db jdbc url
+    Type: String
+    Default: jdbc:presto://...
+  EmailLine:
+    Description: email address to send emails to
+    Type: String
+    Default: See https://drive.google.com (TODO) for more details
 Resources:
   ExecutionRole:
     Type: AWS::IAM::Role
@@ -79,6 +87,8 @@ Resources:
           App: !Ref App
           EmailFrom: !Ref EmailFrom
           EmailTo: !Ref EmailTo
+          PrestoUrl: !Ref PrestoUrl
+          EmailLine: !Ref EmailLine
       Description: This job runs regularly to pull data from presto and drop it in an email to the team.
       Handler: com.gu.supportermetricsjob.Lambda::handler
       MemorySize: 128
