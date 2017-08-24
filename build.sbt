@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-java-sdk-ses" % "1.11.180",
   "com.amazonaws" % "aws-lambda-java-core" % "1.1.0",
   "com.amazonaws" % "aws-lambda-java-log4j2" % "1.0.0",
-  "com.typesafe" % "config" % "1.3.1"
+  "com.facebook.presto" % "presto-jdbc" % "0.182"
 )
 
 enablePlugins(RiffRaffArtifact)
