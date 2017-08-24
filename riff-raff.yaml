@@ -1,0 +1,19 @@
+stacks: [memb-supporter-metrics-job]
+regions: [eu-west-1]
+
+deployments:
+  supporter-metrics-job:
+    type: aws-lambda
+    parameters:
+      bucket: supporter-metrics-job-dist
+      functionNames: [supporter-metrics-job-]
+      fileName: supporter-metrics-job.jar
+      prefixStack: false
+    dependencies: [supporter-metrics-job-cfn]
+  supporter-metrics-job-cfn:
+    type: cloud-formation
+    app: supporter-metrics-job
+    parameters:
+      prependStackToCloudFormationStackName: false
+      cloudFormationStackName: supporter-metrics-job
+      templatePath: cfn.yaml
