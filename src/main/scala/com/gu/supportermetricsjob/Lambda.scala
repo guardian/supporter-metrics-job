@@ -14,8 +14,8 @@ object Lambda extends Logging {
   }
 
   def env(): Config = Config(
-    Option(System.getenv("App")).getOrElse("DEV"),
-    Option(System.getenv("Stack")).getOrElse("DEV"),
+    Option(System.getenv("App")).getOrElse("supporter-metrics-job"),
+    Option(System.getenv("Stack")).getOrElse("memb-supporter-metrics-job"),
     Option(System.getenv("Stage")).getOrElse("DEV"),
     Option(System.getenv("EmailTo")).get,
     Option(System.getenv("EmailFrom")).get,

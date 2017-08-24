@@ -12,16 +12,3 @@
         </Root>
     </Loggers>
 </Configuration>
-<!--
-log = .
-log4j.rootLogger = INFO, LAMBDA, A1
-
-# Define the LAMBDA Appender
-log4j.appender.LAMBDA=com.amazonaws.services.lambda.runtime.log4j.LambdaAppender
-log4j.appender.LAMBDA.layout=org.apache.log4j.PatternLayout
-log4j.appender.LAMBDA.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %l - %m%n
-
-log4j.appender.A1=org.apache.log4j.ConsoleAppender
-log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-log4j.appender.A1.layout.ConversionPattern=%-5p %c %x - %m%n
--->

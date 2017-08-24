@@ -17,8 +17,8 @@ object TestIt extends Logging {
     }
     logger.info(s"config: $config")
     println(SendChurnEmailsJob.run(Config(
-      app = "dev",
-      stack = "dev",
+      app = "supporter-metrics-job",
+      stack = "memb-supporter-metrics-job",
       stage = "dev",
       emailTo = config.getProperty("email.to"),
       emailFrom = config.getProperty("email.from"),
