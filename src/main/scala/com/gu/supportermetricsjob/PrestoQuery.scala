@@ -23,7 +23,7 @@ object PrestoQuery {
          select count(1) as base
          from subscriptions
          where status_date = $statusDateString
-         and end_date is null or end_date > $dateString
+         and (end_date is null or end_date > $dateString)
          and signup_date <= $dateString
          and product_name = 'Supporter'
       """
