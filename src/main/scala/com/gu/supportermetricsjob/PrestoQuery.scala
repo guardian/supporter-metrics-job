@@ -23,7 +23,7 @@ object PrestoQuery {
          select count(1) as base
          from subscriptions
          where status_date = $statusDateString
-         and (cancelled_at > $dateString or cancelled_at is null)
+         and (end_date is null or end_date > $dateString)
          and signup_date <= $dateString
          and product_name = 'Supporter'
       """
@@ -37,8 +37,7 @@ object PrestoQuery {
          select count(1) as churn
        from subscriptions
        where status_date = $statusDateString
-       and cancelled_at > $startDateString
-       and cancelled_at < $endDateString
+       and end_date < $endDateString and (end_date > $startDateString or cancelled_at > $startDateString)
        and product_name = 'Supporter'
       """
   }

@@ -51,10 +51,8 @@ object SendChurnEmailsJob extends Logging {
       "<h2>What is this email?</h2>",
       "This email is to evidence agreement of Churn metric in support of KR3.  It shows a minimum viable product for visibility, but should be extended " +
         "to support other use cases in the form of more emails, a dashboard, or anything else.",
-      "The full churn spreadsheet is in Matt's posession, this email is intended as a summary for wider digestability, and to improve confidence that everyone really is using the same definition. " +
+      "The full churn spreadsheet is in Matt's possession, this email is intended as a summary for wider digestability, and to improve confidence that everyone really is using the same definition. " +
         "It comes from the data lake.",
-      "If you have any requirements/improvements/disagreements then please come back on this so we can make this useful.  If no-one finds it useful, then it won't last beyond the end of the quarter!",
-
       "<h2>What is 'Churn'?</h2>",
       "Churn is the percentage of total customers who stop using your service during a period.",
       "",
@@ -68,9 +66,14 @@ object SendChurnEmailsJob extends Logging {
       s"${count.breakdown.mkString("<br>\n")}",
       "",
       s"<strong>${count.result}</strong>",
+      "<h2>Link to the data dashboard</h2>",
+      "See https://coming.soon.../todo",
+      "this might give breakdown by geo/product, weekly figures?, voluntary cancellation figures etc",
 
       "<h2>Questions/suggestions?</h2>",
-      "Let us know of course, and we will improve this."
+      "Let us know of course, and we will improve this.",
+      "<h2>Data lake queries for those who want to know...</h2>",
+      "See the code at https://github.com/guardian/supporter-metrics-job/blob/master/src/main/scala/com/gu/supportermetricsjob/PrestoQuery.scala"
     ).mkString("<br>\n")
   }
 }
@@ -81,6 +84,7 @@ object Churn {
 
     val periodString: String = period match {
       case Months.ONE => "one month"
+      case Weeks.ONE => "one week"
       case x => x.toString
     }
 
